@@ -48,6 +48,48 @@ Entorno de desarrollo completo para Odoo 18 con módulos Enterprise y configurac
 ./scripts/start.sh --help
 ```
 
+### Creación de Módulos
+```bash
+# Crear módulo completo
+./scripts/create_module.sh mi_nuevo_modulo
+
+# Crear módulo con Company específica
+./scripts/create_module.sh mi_modulo_ventas --company "Mi Empresa S.L."
+
+# Ver opciones disponibles
+./scripts/create_module.sh --help
+```
+
+### Documentación Profesional
+```bash
+# Crear toda la documentación para un módulo
+./scripts/create_documentation.sh mi_modulo
+
+# Crear solo README.md
+./scripts/create_documentation.sh --readme mi_modulo
+
+# Crear solo tests
+./scripts/create_documentation.sh --tests mi_modulo
+
+# Ver todas las opciones
+./scripts/create_documentation.sh --help
+```
+
+### Validación de Módulos
+```bash
+# Validar __manifest__.py de un módulo
+./scripts/validate_manifest.sh addons_custom/mi_modulo
+
+# Validación estricta para Odoo Apps Store
+./scripts/validate_manifest.sh --strict addons_custom/mi_modulo
+
+# Validación con información detallada
+./scripts/validate_manifest.sh --verbose addons_custom/mi_modulo
+
+# Ver opciones de validación
+./scripts/validate_manifest.sh --help
+```
+
 ## 🛠 Configuración del Entorno
 
 ### Rutas de Módulos
@@ -71,6 +113,31 @@ Entorno de desarrollo completo para Odoo 18 con módulos Enterprise y configurac
 Una vez iniciado, accede a Odoo en: **http://localhost:8069**
 
 **Contraseña maestra por defecto**: `admin`
+
+## 📚 Documentación Completa
+
+Este workspace incluye documentación exhaustiva para el desarrollo de módulos Odoo:
+
+### Guías de Desarrollo
+- **[ESTRUCTURA_COMPLETA.md](addons_custom/ESTRUCTURA_COMPLETA.md)** - Estructura completa de módulos
+- **[MANIFEST_PROFESIONAL.md](addons_custom/MANIFEST_PROFESIONAL.md)** - El corazón técnico del módulo
+- **[EJEMPLOS_ARCHIVOS.md](addons_custom/EJEMPLOS_ARCHIVOS.md)** - Ejemplos de archivos Python
+- **[EJEMPLOS_XML.md](addons_custom/EJEMPLOS_XML.md)** - Ejemplos de vistas y datos XML
+- **[TRADUCCION_WIZARDS.md](addons_custom/TRADUCCION_WIZARDS.md)** - i18n y wizards
+- **[DOCUMENTACION_TESTS.md](addons_custom/DOCUMENTACION_TESTS.md)** - README, LICENSE y tests
+- **[RESUMEN_FRAMEWORK_COMPLETO.md](addons_custom/RESUMEN_FRAMEWORK_COMPLETO.md)** - 🎉 **Resumen completo del framework**
+
+### Componentes Profesionales Incluidos
+- 📄 **README.md** - Documentación completa del módulo
+- 📜 **LICENSE** - Archivos de licencia (LGPL-3, MIT)
+- 🌐 **index.html** - Descripción visual profesional
+- 🧪 **Tests** - Tests unitarios y funcionales completos
+- 🎨 **Iconos** - Templates para iconos de módulo
+
+### Automatización
+- **Scripts automatizados** para crear estructura completa
+- **Templates profesionales** listos para usar
+- **Ejemplos exhaustivos** de cada componente
 
 ## 📦 Crear Módulos Personalizados
 
