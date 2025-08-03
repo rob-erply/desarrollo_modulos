@@ -33,10 +33,10 @@
     'license': 'AGPL-3',            # Compatible con Odoo Community
     
     # === INFORMACIÓN DEL AUTOR ===
-    'author': 'ERPly Solutions',
-    'maintainer': 'ERPly Solutions Development Team',
-    'website': 'https://tu-empresa.com',
-    'support': 'soporte@tu-empresa.com',
+    'author': 'ERPly S.R.L.',
+    'maintainer': 'ERPly S.R.L. Development Team',
+    'website': 'https://erply.do',
+    'support': 'info@erply.do',
     
     # === CATEGORIZACIÓN ===
     'category': 'Extra Tools',       # Cambiar según corresponda

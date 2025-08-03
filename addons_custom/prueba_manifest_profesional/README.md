@@ -1,6 +1,21 @@
 # Addons Custom/Prueba Manifest Profesional
 
-[![License: LGPL-3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
+[![License: LGPL-3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https## 🙏 Créditos
+
+- **Autor**: ERPly S.R.L.
+- **Empresa**: ERPly S.R.L. - Especialistas en Odoo
+- **Contacto**: info@erply.do | +1 (849) 517-5363
+- **Dirección**: Calle Dr. Jacinto Ignacio Mañón #7, República Dominicana
+
+## 📚 Recursos Adicionales
+
+- [Documentación Oficial de Odoo](https://www.odoo.com/documentation/18.0/)
+- [OCA (Odoo Community Association)](https://github.com/OCA)
+- [Odoo Apps Store](https://apps.odoo.com/)
+
+---
+
+**¿Necesitas ayuda?** Contacta a [info@erply.do](mailto:info@erply.do) | Tel: +1 (849) 517-5363licenses/lgpl-3.0)
 [![Odoo Version](https://img.shields.io/badge/Odoo-18.0-brightgreen.svg)](https://github.com/odoo/odoo/tree/18.0)
 
 ## 📋 Descripción

@@ -1,6 +1,13 @@
-# Desarrollo Módulos Odoo 18
+# 🚀 Framework Profesional de Desarrollo Odoo 18
 
-Entorno de desarrollo completo para Odoo 18 con módulos Enterprise y configuración optimizada para CodeSpaces.
+Entorno de desarrollo completo para Odoo 18 con módulos Enterprise y configuración optimizada para crear módulos profesionales.
+
+**Desarrollado por ERPly S.R.L.** - Especialistas en implementación Odoo
+
+## 🏢 Contacto ERPly S.R.L.
+- 📧 **Email**: info@erply.do
+- 📞 **Teléfono**: +1 (849) 517-5363
+- 📍 **Dirección**: Calle Dr. Jacinto Ignacio Mañón #7, República Dominicana
 
 ## 🚀 Inicio Rápido
 
@@ -12,111 +19,47 @@ Entorno de desarrollo completo para Odoo 18 con módulos Enterprise y configurac
 ## 📁 Estructura del Proyecto
 
 ```
-├── .devcontainer/          # Configuración CodeSpaces/DevContainer
-├── odoo/                   # Core Odoo 18 (clonado desde GitHub oficial)
-├── enterprise/             # Módulos Enterprise Odoo 18
-├── addons_custom/          # Tus módulos personalizados
-├── config/                 # Archivos de configuración Odoo
-├── logs/                   # Logs de la aplicación
-├── scripts/                # Scripts de utilidad
-│   ├── setup.sh           # Setup automático del entorno
-│   └── start.sh           # Script simplificado de arranque
-├── requirements.txt        # Dependencias Python adicionales
-└── README.md              # Esta documentación
+proevedor_cardnet/
+├── .devcontainer/           # Configuración devcontainer
+├── addons_custom/          # 🎯 TUS MÓDULOS PERSONALIZADOS
+├── scripts/                # Scripts de desarrollo automatizados
+├── logs/                   # Logs de Odoo
+├── config/                 # Configuraciones de Odoo
+└── odoo/                   # Core de Odoo 18 + Enterprise
 ```
 
-## 🔧 Scripts Disponibles
+## 🛠️ Scripts Automatizados Incluidos
 
-### Arranque Simplificado
+### 📝 Crear Módulo Profesional
 ```bash
-# Arranque normal
-./scripts/start.sh
-
-# Modo desarrollo (auto-reload)
-./scripts/start.sh -d
-
-# Con base de datos específica
-./scripts/start.sh -db mi_db
-
-# Instalar módulo
-./scripts/start.sh -db mi_db -i mi_modulo  
-
-# Actualizar módulo
-./scripts/start.sh -db mi_db -u mi_modulo
-
-# Ver todas las opciones
-./scripts/start.sh --help
-```
-
-### Creación de Módulos
-```bash
-# Crear módulo completo
+# Crear módulo completo con estructura profesional
 ./scripts/create_module.sh mi_nuevo_modulo
 
-# Crear módulo con Company específica
-./scripts/create_module.sh mi_modulo_ventas --company "Mi Empresa S.L."
-
-# Ver opciones disponibles
-./scripts/create_module.sh --help
+# Con parámetros avanzados
+./scripts/create_module.sh mi_modulo "Mi Módulo Increíble" "ERPly S.R.L." "info@erply.do"
 ```
 
-### Documentación Profesional
+### 📚 Generar Documentación
 ```bash
-# Crear toda la documentación para un módulo
-./scripts/create_documentation.sh mi_modulo
+# Crear documentación completa para módulo existente
+./scripts/create_documentation.sh addons_custom/mi_modulo
 
-# Crear solo README.md
-./scripts/create_documentation.sh --readme mi_modulo
-
-# Crear solo tests
-./scripts/create_documentation.sh --tests mi_modulo
-
-# Ver todas las opciones
-./scripts/create_documentation.sh --help
+# Regenerar documentación
+./scripts/create_documentation.sh addons_custom/mi_modulo --force
 ```
 
-### Validación de Módulos
+### ✅ Validar Manifesto
 ```bash
 # Validar __manifest__.py de un módulo
-./scripts/validate_manifest.sh addons_custom/mi_modulo
-
-# Validación estricta para Odoo Apps Store
-./scripts/validate_manifest.sh --strict addons_custom/mi_modulo
-
-# Validación con información detallada
-./scripts/validate_manifest.sh --verbose addons_custom/mi_modulo
-
-# Ver opciones de validación
-./scripts/validate_manifest.sh --help
+python3 scripts/validate_manifest.py addons_custom/mi_modulo/__manifest__.py
 ```
 
-## 🛠 Configuración del Entorno
+## 🎯 Framework de Desarrollo Completo
 
-### Rutas de Módulos
-- **Core Odoo**: `/workspaces/proevedor_cardnet/odoo/addons`
-- **Enterprise**: `/workspaces/proevedor_cardnet/enterprise`  
-- **Personalizados**: `/workspaces/proevedor_cardnet/addons_custom`
-
-### Base de Datos
-- **Host**: localhost
-- **Puerto**: 5432
-- **Usuario**: odoo
-- **Contraseña**: odoo
-- **BD por defecto**: dev
-
-### Puertos
-- **8069**: Servidor Web Odoo
-- **8072**: Longpolling Odoo
-
-## 🚀 Acceso a la Aplicación
-
-Una vez iniciado, accede a Odoo en: **http://localhost:8069**
-
-**Contraseña maestra por defecto**: `admin`
-
-## 📚 Documentación Completa
-
-Este workspace incluye documentación exhaustiva para el desarrollo de módulos Odoo:
+### Scripts de Automatización
+- **[create_module.sh](scripts/create_module.sh)** - 🔧 Creación automática de módulos profesionales
+- **[create_documentation.sh](scripts/create_documentation.sh)** - 📖 Generación de documentación completa
+- **[validate_manifest.py](scripts/validate_manifest.py)** - ✅ Validación de manifiestos
 
 ### Guías de Desarrollo
 - **[ESTRUCTURA_COMPLETA.md](addons_custom/ESTRUCTURA_COMPLETA.md)** - Estructura completa de módulos
@@ -126,18 +69,50 @@ Este workspace incluye documentación exhaustiva para el desarrollo de módulos 
 - **[TRADUCCION_WIZARDS.md](addons_custom/TRADUCCION_WIZARDS.md)** - i18n y wizards
 - **[DOCUMENTACION_TESTS.md](addons_custom/DOCUMENTACION_TESTS.md)** - README, LICENSE y tests
 - **[RESUMEN_FRAMEWORK_COMPLETO.md](addons_custom/RESUMEN_FRAMEWORK_COMPLETO.md)** - 🎉 **Resumen completo del framework**
+- **[SOBRE_ERPLY.md](addons_custom/SOBRE_ERPLY.md)** - 🏢 **Información sobre ERPly S.R.L.**
 
-### Componentes Profesionales Incluidos
-- 📄 **README.md** - Documentación completa del módulo
-- 📜 **LICENSE** - Archivos de licencia (LGPL-3, MIT)
-- 🌐 **index.html** - Descripción visual profesional
-- 🧪 **Tests** - Tests unitarios y funcionales completos
-- 🎨 **Iconos** - Templates para iconos de módulo
+---
+
+## 🤝 Contribuir
+
+### Proceso de Contribución
+
+1. Fork del repositorio
+2. Crear rama para la funcionalidad: `git checkout -b feature/nueva-funcionalidad`
+3. Realizar cambios y tests
+4. Commit con mensaje descriptivo
+5. Push y crear Pull Request
 
 ### Automatización
 - **Scripts automatizados** para crear estructura completa
 - **Templates profesionales** listos para usar
 - **Ejemplos exhaustivos** de cada componente
+
+### Componentes Profesionales Incluidos
+- � **README.md** - Documentación completa del módulo
+- 📜 **LICENSE** - Archivos de licencia (LGPL-3, MIT)
+- 🌐 **index.html** - Descripción visual profesional
+- 🧪 **Tests** - Tests unitarios y funcionales completos
+- 🎨 **Iconos** - Templates para iconos de módulo
+
+---
+
+## 📞 Contacto y Soporte ERPly S.R.L.
+
+**ERPly S.R.L.** - Tu socio estratégico en implementación Odoo
+- 📧 **Email**: info@erply.do
+- 📞 **Teléfono**: +1 (849) 517-5363
+- 📍 **Dirección**: Calle Dr. Jacinto Ignacio Mañón #7, República Dominicana
+
+### 🎯 Nuestros Servicios
+- **Consultoría Odoo**: Análisis y planificación estratégica
+- **Desarrollo Custom**: Módulos personalizados y integraciones
+- **Implementación**: Migración y puesta en marcha
+- **Soporte**: Mantenimiento y actualizaciones
+- **Capacitación**: Formación técnica y funcional
+
+---
+*Framework desarrollado con ❤️ por el equipo de ERPly S.R.L.*
 
 ## 📦 Crear Módulos Personalizados
 

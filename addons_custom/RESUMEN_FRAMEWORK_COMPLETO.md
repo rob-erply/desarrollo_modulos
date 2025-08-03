@@ -175,3 +175,27 @@ python3 scripts/quick_validate.py addons_custom/mi_primer_modulo_profesional
 ```
 
 **¡Happy coding! 🚀**
+
+---
+
+## 👥 Desarrollado por
+
+**ERPly S.R.L.**  
+*Especialistas en Desarrollo e Implementación de Odoo*
+
+📍 **Dirección:**  
+Calle Dr. Jacinto Ignacio Mañón #7  
+República Dominicana  
+
+📧 **Contacto:**  
+Email: info@erply.do  
+Teléfono: +1 (849) 517-5363  
+
+🌐 **Servicios Especializados:**  
+- 🔧 Desarrollo de módulos Odoo personalizados
+- 🚀 Implementación y consultoría empresarial  
+- 🔄 Migración entre versiones de Odoo
+- 🛠️ Soporte técnico especializado
+- 📚 Capacitación y documentación técnica
+
+💡 **Misión:** Democratizar el desarrollo profesional de módulos Odoo mediante herramientas, documentación y estándares de calidad enterprise.

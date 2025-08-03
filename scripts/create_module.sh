@@ -18,7 +18,7 @@ show_help() {
 }
 
 # Valores por defecto
-COMPANY_NAME="Tu Empresa"
+COMPANY_NAME="ERPly S.R.L."
 MODULE_NAME=""
 
 # Procesar argumentos
@@ -107,8 +107,8 @@ cat > "$MODULE_DIR/__manifest__.py" << EOF
     # === INFORMACIÓN DEL AUTOR ===
     'author': '$COMPANY_NAME',
     'maintainer': '$COMPANY_NAME Development Team',
-    'website': 'https://tu-empresa.com',
-    'support': 'soporte@tu-empresa.com',
+    'website': 'https://erply.do',
+    'support': 'info@erply.do',
     
     # === CATEGORIZACIÓN ===
     'category': 'Extra Tools',       # Cambiar según corresponda

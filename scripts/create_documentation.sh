@@ -249,9 +249,10 @@ Este módulo está licenciado bajo LGPL-3.0. Ver archivo [LICENSE](LICENSE) para
 
 ## 🙏 Créditos
 
-- **Autor**: [TU NOMBRE]
-- **Empresa**: [TU EMPRESA]
-- **Colaboradores**: Lista de colaboradores
+- **Autor**: $COMPANY_NAME
+- **Empresa**: ERPly S.R.L. - Especialistas en Odoo
+- **Contacto**: info@erply.do | +1 (849) 517-5363
+- **Dirección**: Calle Dr. Jacinto Ignacio Mañón #7, República Dominicana
 
 ## 📚 Recursos Adicionales
 
@@ -261,7 +262,7 @@ Este módulo está licenciado bajo LGPL-3.0. Ver archivo [LICENSE](LICENSE) para
 
 ---
 
-**¿Necesitas ayuda?** Contacta a [email@tuempresa.com](mailto:email@tuempresa.com)
+**¿Necesitas ayuda?** Contacta a [info@erply.do](mailto:info@erply.do) | Tel: +1 (849) 517-5363
 EOF
 
     echo -e "${GREEN}✅ README.md creado exitosamente${NC}"
@@ -275,7 +276,7 @@ create_license() {
 GNU LESSER GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
-Copyright (C) $(date +%Y) [TU EMPRESA]
+Copyright (C) $(date +%Y) ERPly S.R.L.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -502,9 +503,9 @@ create_html() {
         <div class="support">
             <h2>🤝 Soporte y Contacto</h2>
             <p>¿Necesitas ayuda con la implementación o personalización?</p>
-            <a href="mailto:soporte@tuempresa.com" class="btn">Contactar Soporte</a>
-            <a href="https://github.com/tu-repo" class="btn">Ver en GitHub</a>
-            <a href="https://tu-sitio.com/docs" class="btn">Documentación</a>
+            <a href="mailto:info@erply.do" class="btn">Contactar Soporte</a>
+            <a href="https://erply.do" class="btn">Visitar ERPly</a>
+            <a href="https://github.com/rob-erply" class="btn">Ver en GitHub</a>
         </div>
     </div>
 </body>

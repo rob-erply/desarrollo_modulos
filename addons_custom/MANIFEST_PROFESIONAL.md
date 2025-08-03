@@ -113,10 +113,10 @@ Esto permite mantener múltiples versiones del mismo módulo en diferentes ramas
     'license': 'AGPL-3',      # Compatible con Odoo Apps Store y desarrollo comunitario
     
     # === INFORMACIÓN DEL AUTOR ===
-    'author': 'ERPly',
+    'author': 'ERPly S.R.L.',
     'maintainer': 'ERPly Development Team',
-    'website': 'https://www.erply.do',
-    'support': 'soporte@erply.do',
+    'website': 'https://erply.do',
+    'support': 'info@erply.do',
     
     # === CATEGORIZACIÓN ===
     'category': 'Accounting/Localization',
@@ -296,8 +296,8 @@ Esto permite mantener múltiples versiones del mismo módulo en diferentes ramas
     'summary': 'Base library for external API integrations',
     'version': '18.0.1.0.0',
     'license': 'LGPL-3',
-    'author': 'Tu Empresa',
-    'website': 'https://tuempresa.com',
+    'author': 'ERPly S.R.L.',
+    'website': 'https://erply.do',
     'category': 'Extra Tools',
     'depends': ['base', 'web'],
     'data': ['security/ir.model.access.csv'],
@@ -315,8 +315,8 @@ Esto permite mantener múltiples versiones del mismo módulo en diferentes ramas
     'summary': 'Complete restaurant management solution',
     'version': '18.0.1.0.0',
     'license': 'OPL-1',
-    'author': 'Restaurant Solutions Inc.',
-    'website': 'https://restaurantsolutions.com',
+    'author': 'ERPly S.R.L.',
+    'website': 'https://erply.do',
     'category': 'Industries',
     'depends': ['base', 'sale', 'point_of_sale', 'stock'],
     'data': [
@@ -329,7 +329,7 @@ Esto permite mantener múltiples versiones del mismo módulo en diferentes ramas
     'auto_install': False,
     'installable': True,
     'price': 299.00,
-    'currency': 'EUR',
+    'currency': 'USD',
 }
 ```
 
@@ -341,8 +341,8 @@ Esto permite mantener múltiples versiones del mismo módulo en diferentes ramas
     'summary': 'DGII compliance and fiscal requirements',
     'version': '18.0.1.0.0',
     'license': 'AGPL-3',
-    'author': 'Localización DO Team',
-    'website': 'https://github.com/odoo-dominicana',
+    'author': 'ERPly S.R.L.',
+    'website': 'https://erply.do',
     'category': 'Accounting/Localizations',
     'depends': ['account', 'base', 'web'],
     'data': [
