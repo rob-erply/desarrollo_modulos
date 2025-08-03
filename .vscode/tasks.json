@@ -1,0 +1,99 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Odoo",
+            "type": "shell",
+            "command": "./scripts/start.sh",
+            "args": [],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "runOptions": {
+                "instanceLimit": 1
+            }
+        },
+        {
+            "label": "Start Odoo (Development Mode)",
+            "type": "shell",
+            "command": "./scripts/start.sh",
+            "args": ["-d"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "isBackground": true,
+            "problemMatcher": [],
+            "runOptions": {
+                "instanceLimit": 1
+            }
+        },
+        {
+            "label": "Install Module",
+            "type": "shell",
+            "command": "./scripts/start.sh",
+            "args": [
+                "-db",
+                "${input:database}",
+                "-i",
+                "${input:module}"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "Update Module",
+            "type": "shell",
+            "command": "./scripts/start.sh",
+            "args": [
+                "-db",
+                "${input:database}",
+                "-u",
+                "${input:module}"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "module",
+            "description": "Module name",
+            "default": "",
+            "type": "promptString"
+        },
+        {
+            "id": "database",
+            "description": "Database name",
+            "default": "dev",
+            "type": "promptString"
+        }
+    ]
+}

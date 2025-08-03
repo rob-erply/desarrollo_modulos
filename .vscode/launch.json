@@ -1,0 +1,69 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Odoo: Debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/workspaces/proevedor_cardnet/odoo/odoo-bin",
+            "args": [
+                "-c",
+                "/workspaces/proevedor_cardnet/config/odoo.conf",
+                "--dev=reload,qweb,werkzeug,xml"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "/workspaces/proevedor_cardnet/odoo:/workspaces/proevedor_cardnet/enterprise:/workspaces/proevedor_cardnet/addons_custom"
+            }
+        },
+        {
+            "name": "Odoo: Install Module",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/workspaces/proevedor_cardnet/odoo/odoo-bin",
+            "args": [
+                "-c",
+                "/workspaces/proevedor_cardnet/config/odoo.conf",
+                "-d",
+                "${input:database}",
+                "-i",
+                "${input:module}",
+                "--stop-after-init"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Odoo: Update Module",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/workspaces/proevedor_cardnet/odoo/odoo-bin",
+            "args": [
+                "-c",
+                "/workspaces/proevedor_cardnet/config/odoo.conf",
+                "-d",
+                "${input:database}",
+                "-u",
+                "${input:module}",
+                "--stop-after-init"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        }
+    ],
+    "inputs": [
+        {
+            "id": "module",
+            "description": "Module name",
+            "default": "",
+            "type": "promptString"
+        },
+        {
+            "id": "database",
+            "description": "Database name",
+            "default": "dev",
+            "type": "promptString"
+        }
+    ]
+}

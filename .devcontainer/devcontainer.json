@@ -1,0 +1,38 @@
+{
+  "name": "Desarrollo Módulos Odoo 18",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",
+  "features": {
+    "ghcr.io/devcontainers/features/postgres:1": {
+      "version": "14",
+      "postgresql-user": "odoo",
+      "postgresql-password": "odoo",
+      "postgresql-db": "dev"
+    }
+  },
+  "postCreateCommand": "./scripts/setup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "odoo.owldebugger",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
+  "forwardPorts": [8069, 8072],
+  "portsAttributes": {
+    "8069": {
+      "label": "Odoo Web Server",
+      "onAutoForward": "notify"
+    },
+    "8072": {
+      "label": "Odoo Longpolling",
+      "onAutoForward": "silent"
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder}/addons_custom,target=/workspaces/proevedor_cardnet/addons_custom,type=bind,consistency=cached"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/proevedor_cardnet,type=bind,consistency=cached",
+  "workspaceFolder": "/workspaces/proevedor_cardnet"
+}

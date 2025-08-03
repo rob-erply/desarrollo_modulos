@@ -1,0 +1,99 @@
+# Odoo Core - No versionar el repositorio oficial
+odoo/
+enterprise/
+
+# Archivos de configuración con datos sensibles
+config/odoo.conf
+config/*.conf
+
+# Variables de entorno
+.env
+.env.local
+.env.development
+.env.production
+
+# Logs
+logs/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# VS Code
+.vscode/settings.json
+.vscode/launch.json.user
+
+# OS específicos
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Odoo específicos
+*.pyc
+*.pyo
+*~
+.*.swp
+.*.swo
+
+# Archivos de base de datos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos temporales
+*.tmp
+*.bak
+*.backup
+
+# Archivos de certificados y claves
+*.key
+*.crt
+*.pem
+*.p12
+*.pfx
+
+# Archivos de configuración de IDE
+.idea/
+*.iml
+
+# Archivos de dependencias
+node_modules/
+npm-debug.log*
+
+# Archivos de build
+build/
+dist/
+*.egg-info/
+
+# Archivos de test
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Configuraciones locales de desarrollo
+.env
+.env.local
+local_settings.py
+
+# Archivos de backup de Odoo
+*.dump
+*.backup
+
+# Directorios de addons externos (si se usan)
+# addons_external/
+
+# Mantener estructura de directorios vacíos
+!.gitkeep
