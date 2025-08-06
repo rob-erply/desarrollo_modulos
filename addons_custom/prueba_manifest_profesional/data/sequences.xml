@@ -1,0 +1,11 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Example sequence -->
+        <record id="seq_prueba_manifest_profesional" model="ir.sequence">
+            <field name="name">Prueba Manifest Profesional Sequence</field>
+            <field name="code">prueba_manifest_profesional.seq</field>
+            <field name="prefix">PRB-</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</odoo>

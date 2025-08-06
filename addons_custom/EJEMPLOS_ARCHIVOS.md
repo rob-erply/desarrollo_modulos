@@ -125,55 +125,75 @@ def post_init_hook(env):
     Hook ejecutado después de la instalación del módulo.
     Útil para configuraciones iniciales, migraciones de datos, etc.
     """
-    # Ejemplo: Crear datos iniciales
-    company = env['res.company'].search([], limit=1)
-    if company:
-        # Configurar parámetros específicos del módulo
-        env['ir.config_parameter'].sudo().set_param(
-            'mi_modulo.empresa_principal', 
-            company.id
-        )
 
+# Ejemplos profesionales de archivos clave para módulos Odoo en Odoo.sh
 
-def uninstall_hook(env):
-    """
-    Hook ejecutado antes de la desinstalación del módulo.
-    Útil para limpiar datos, configuraciones, etc.
-    """
-    # Ejemplo: Limpiar parámetros del sistema
-    env['ir.config_parameter'].sudo().search([
-        ('key', 'like', 'mi_modulo.%')
-    ]).unlink()
+## __manifest__.py
+```python
+{
+    'name': 'Mi Módulo Profesional',
+    'version': '1.0.0',
+    'author': 'ERPly S.R.L.',
+    'category': 'Herramientas',
+    'summary': 'Gestión profesional de registros',
+    'depends': ['base', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/mi_modelo_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+}
 ```
 
-## 3. models/__init__.py - Importación de Modelos
-
+## models/mi_modelo.py
 ```python
-# -*- coding: utf-8 -*-
+from odoo import models, fields, api
 
-# Modelos principales del módulo
-from . import mi_modelo_principal
-from . import mi_modelo_secundario
+class MiModelo(models.Model):
+    _name = 'mi.modelo'
+    _description = 'Mi Modelo Profesional'
 
-# Extensiones de modelos existentes
-from . import res_partner
-from . import res_users
-from . import sale_order
+    name = fields.Char('Nombre', required=True)
+    descripcion = fields.Text('Descripción')
+    state = fields.Selection([
+        ('borrador', 'Borrador'),
+        ('confirmado', 'Confirmado'),
+        ('aprobado', 'Aprobado'),
+        ('completado', 'Completado'),
+    ], string='Estado', default='borrador')
 
-# Modelos de configuración (si existen)
-from . import mi_configuracion
+    def action_confirmar(self):
+        self.state = 'confirmado'
 ```
 
-## 4. Ejemplo de Modelo Completo
+## views/mi_modelo_views.xml
+```xml
+<record id="view_form_mi_modelo" model="ir.ui.view">
+    <field name="name">mi.modelo.form</field>
+    <field name="model">mi.modelo</field>
+    <field name="arch" type="xml">
+        <form string="Mi Modelo Profesional">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                    <field name="state"/>
+                </group>
+                <footer>
+                    <button name="action_confirmar" type="object" string="Confirmar" attrs="{'invisible': [('state','!=','borrador')]}" class="btn-primary"/>
+                </footer>
+            </sheet>
+        </form>
+    </field>
+</record>
+```
 
-```python
-# models/mi_modelo_principal.py
-# -*- coding: utf-8 -*-
-from odoo import models, fields, api, _
-from odoo.exceptions import UserError, ValidationError
-from datetime import datetime, timedelta
-import logging
-
+## security/ir.model.access.csv
+```csv
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mi_modelo,access_mi_modelo,model_mi_modelo,base.group_user,1,1,1,1
+```
 _logger = logging.getLogger(__name__)
 
 

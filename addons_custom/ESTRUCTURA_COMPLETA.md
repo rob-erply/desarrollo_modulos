@@ -1,65 +1,76 @@
-# Estructura Completa de Módulo Odoo 18
 
-Esta guía detalla la estructura completa y profesional para desarrollar módulos en Odoo 18.
-
-## 📁 Estructura de Directorio Completa
-
+# Estructura profesional y checklist para módulos Odoo en Odoo.sh
 ```
-addons_custom/mi_modulo_completo/
-├── __manifest__.py              # Descripción técnica, versión, dependencias
-├── __init__.py                  # Carga inicial del módulo
-├── README.md                    # Guía para el usuario (Markdown)
-├── LICENSE                      # Archivo de licencia seleccionada
-├── models/                      # Modelos de datos con lógica de negocio
+mi_modulo/
+├── __manifest__.py
+├── __init__.py
+├── README.md
+├── LICENSE
+├── models/
 │   ├── __init__.py
 │   ├── mi_modelo.py
-│   └── res_partner.py          # Extensión de modelos existentes
-├── views/                       # Archivos XML para UI
-│   ├── mi_modelo_views.xml     # Formularios, listas
-│   ├── mi_modelo_menus.xml     # Menús y acciones
-│   └── inherited_views.xml     # Vistas heredadas
-├── security/                    # Reglas de acceso y seguridad
-│   ├── ir.model.access.csv     # Permisos básicos de modelo
-│   └── security.xml            # Reglas de registro y grupos
-├── i18n/                        # Archivos de traducción
-│   ├── es.po                   # Español
-│   ├── en.po                   # Inglés
-│   └── template.pot            # Plantilla de traducción
-├── data/                        # Datos precargados
-│   ├── data.xml                # Datos base del módulo
-│   ├── sequences.xml           # Secuencias numéricas
-│   └── mail_templates.xml      # Plantillas de email
-├── static/                      # Archivos estáticos
+│   └── res_partner.py
+├── views/
+│   ├── mi_modelo_views.xml
+│   ├── mi_modelo_menus.xml
+│   └── inherited_views.xml
+├── security/
+│   ├── ir.model.access.csv
+│   └── security.xml
+├── i18n/
+│   ├── es.po
+│   ├── en.po
+│   └── template.pot
+├── data/
+│   ├── data.xml
+│   ├── sequences.xml
+│   └── mail_templates.xml
+├── static/
 │   ├── description/
-│   │   ├── icon.png            # Icono del módulo (128x128 mínimo)
-│   │   ├── index.html          # Descripción visual con imágenes y guía
-│   │   ├── banner.png          # Banner promocional (opcional)
-│   │   ├── screenshot1.png     # Capturas de pantalla
-│   │   └── screenshot2.png     # Capturas adicionales
+│   │   ├── icon.png
+│   │   ├── index.html
+│   │   ├── banner.png
+│   │   ├── screenshot1.png
+│   │   └── screenshot2.png
 │   └── src/
 │       ├── js/
-│       │   └── mi_script.js    # JavaScript personalizado
+│       │   └── mi_script.js
 │       ├── css/
-│       │   └── mi_estilo.css   # Estilos CSS
+│       │   └── mi_estilo.css
 │       └── xml/
-│           └── templates.xml   # Plantillas QWeb
-├── controllers/                 # Controladores web (opcional)
+│           └── templates.xml
+├── controllers/
 │   ├── __init__.py
 │   └── main.py
-├── report/                      # Reportes (opcional)
+├── report/
 │   ├── __init__.py
 │   ├── mi_reporte.py
 │   └── templates.xml
-├── tests/                       # Tests unitarios y funcionales
+├── tests/
 │   ├── __init__.py
-│   ├── test_mi_modelo.py       # Tests unitarios
-│   ├── test_wizard.py          # Tests de wizards
-│   └── test_common.py          # Utilidades comunes para tests
-└── wizard/                      # Asistentes/Wizards (opcional)
+│   ├── test_mi_modelo.py
+│   ├── test_wizard.py
+│   └── test_common.py
+└── wizard/
     ├── __init__.py
     ├── mi_wizard.py
     └── mi_wizard_views.xml
 ```
+
+## Checklist profesional para Odoo.sh
+- [x] Manifest completo y en español
+- [x] Modelos y vistas documentados
+- [x] Pruebas automáticas agrupadas por funcionalidad
+- [x] Archivos de seguridad y permisos
+- [x] Documentación profesional en README.md
+- [x] Archivos estáticos para descripción y recursos
+
+## Mejores prácticas
+- Usa nomenclatura consistente y descriptiva
+- Agrupa campos y métodos por tipo y funcionalidad
+- Implementa validaciones y reglas de seguridad
+- Optimiza performance con índices y dominios eficientes
+- Mantén la documentación y los tests actualizados
 
 ## 🚀 Comando para Crear Estructura
 

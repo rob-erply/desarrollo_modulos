@@ -1,3 +1,26 @@
+# Ejemplo profesional de manifest para Odoo.sh
+```python
+{
+    'name': 'Mi Módulo Profesional',
+    'version': '1.0.0',
+    'author': 'ERPly S.R.L.',
+    'category': 'Herramientas',
+    'summary': 'Gestión profesional de registros',
+    'description': 'Módulo profesional para Odoo.sh con pruebas automáticas y documentación en español.',
+    'depends': ['base', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/mi_modelo_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+}
+```
+
+## Recomendaciones para Odoo.sh
+- Mantén el manifest actualizado con dependencias y archivos clave.
+- Usa los campos summary y description en español.
+- Incluye pruebas automáticas y documentación profesional.
 # __manifest__.py - El Corazón del Módulo Odoo
 
 El archivo `__manifest__.py` (anteriormente `__openerp__.py`) es el **corazón técnico del módulo**. Define su estructura, comportamiento, dependencias y compatibilidad con versiones. Para que un módulo sea aceptado en el marketplace y se mantenga correctamente a largo plazo, debe contener un manifest limpio, completo y estandarizado.

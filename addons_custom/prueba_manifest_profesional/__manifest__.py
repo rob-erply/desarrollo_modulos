@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-{
+manifest = {
     # === INFORMACIÓN BÁSICA ===
     'name': 'Prueba Manifest Profesional',
     'summary': 'Módulo personalizado para [DESCRIBIR FUNCIONALIDAD ESPECÍFICA]',

@@ -2,85 +2,104 @@
 
 Este es un ejemplo paso a paso para crear tu primer módulo personalizado en Odoo 18.
 
-## 📋 Paso 1: Crear la estructura
 
-```bash
-# Crear directorio del módulo
-mkdir -p addons_custom/mi_primer_modulo
+# Ejemplo profesional de módulo Odoo para Odoo.sh
 
-# Crear estructura básica
-mkdir -p addons_custom/mi_primer_modulo/models
-mkdir -p addons_custom/mi_primer_modulo/views
-mkdir -p addons_custom/mi_primer_modulo/security
-mkdir -p addons_custom/mi_primer_modulo/static/description
+## Estructura recomendada
+```
+mi_modulo/
+├── __init__.py
+├── __manifest__.py
+├── models/
+│   └── mi_modelo.py
+├── views/
+│   └── mi_modelo_views.xml
+├── security/
+│   └── ir.model.access.csv
+├── tests/
+│   └── test_mi_modelo.py
+└── README.md
 ```
 
-## 📋 Paso 2: __init__.py principal
-
+## Ejemplo de manifest profesional
 ```python
-# addons_custom/mi_primer_modulo/__init__.py
-from . import models
-```
-
-## 📋 Paso 3: __manifest__.py
-
-```python
-# addons_custom/mi_primer_modulo/__manifest__.py
 {
-    'name': 'Mi Primer Módulo',
-    'version': '18.0.1.0.0',
-    'category': 'Extra Tools',
-    'summary': 'Ejemplo de módulo básico para aprender',
-    'description': '''
-        Este es mi primer módulo en Odoo 18:
-        - Modelo simple de ejemplo
-        - Vista básica
-        - Menú en la aplicación
-    ''',
-    'author': 'Mi Nombre',
-    'website': 'https://mi-sitio.com',
-    'depends': ['base'],
+    'name': 'Mi Módulo Profesional',
+    'version': '1.0.0',
+    'author': 'ERPly S.R.L.',
+    'category': 'Herramientas',
+    'summary': 'Gestión profesional de registros con workflow y permisos',
+    'description': 'Módulo profesional para Odoo.sh con pruebas automáticas y documentación en español.',
+    'depends': ['base', 'mail'],
     'data': [
         'security/ir.model.access.csv',
         'views/mi_modelo_views.xml',
-        'views/mi_menu.xml',
     ],
     'installable': True,
-    'auto_install': False,
-    'application': True,  # True si quieres que aparezca como app principal
-    'license': 'LGPL-3',
+    'application': True,
 }
 ```
 
-## 📋 Paso 4: Modelo (models/__init__.py)
-
+## Ejemplo de modelo profesional
 ```python
-# addons_custom/mi_primer_modulo/models/__init__.py
-from . import mi_modelo
-```
-
-## 📋 Paso 5: Modelo principal
-
-```python
-# addons_custom/mi_primer_modulo/models/mi_modelo.py
 from odoo import models, fields, api
 
 class MiModelo(models.Model):
     _name = 'mi.modelo'
-    _description = 'Mi Modelo de Ejemplo'
-    _rec_name = 'nombre'
+    _description = 'Mi Modelo Profesional'
 
-    nombre = fields.Char(
-        string='Nombre', 
-        required=True,
-        help='Nombre descriptivo del registro'
-    )
-    
-    descripcion = fields.Text(
-        string='Descripción',
-        help='Descripción detallada'
-    )
-    
+    name = fields.Char('Nombre', required=True)
+    descripcion = fields.Text('Descripción')
+    state = fields.Selection([
+        ('borrador', 'Borrador'),
+        ('confirmado', 'Confirmado'),
+        ('aprobado', 'Aprobado'),
+        ('completado', 'Completado'),
+    ], string='Estado', default='borrador')
+
+    def action_confirmar(self):
+        self.state = 'confirmado'
+```
+
+## Ejemplo de vista profesional
+```xml
+<record id="view_form_mi_modelo" model="ir.ui.view">
+    <field name="name">mi.modelo.form</field>
+    <field name="model">mi.modelo</field>
+    <field name="arch" type="xml">
+        <form string="Mi Modelo Profesional">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                    <field name="state"/>
+                </group>
+                <footer>
+                    <button name="action_confirmar" type="object" string="Confirmar" attrs="{'invisible': [('state','!=','borrador')]}" class="btn-primary"/>
+                </footer>
+            </sheet>
+        </form>
+    </field>
+</record>
+```
+
+## Ejemplo de test profesional
+```python
+from odoo.tests.common import TransactionCase, tagged
+
+@tagged('modelo', 'workflow')
+class TestMiModelo(TransactionCase):
+    def setUp(self):
+        super().setUp()
+        self.modelo = self.env['mi.modelo'].create({'name': 'Test', 'descripcion': 'Prueba'})
+
+    def test_creacion(self):
+        self.assertEqual(self.modelo.name, 'Test')
+
+    def test_workflow(self):
+        self.modelo.action_confirmar()
+        self.assertEqual(self.modelo.state, 'confirmado')
+```
     fecha_creacion = fields.Datetime(
         string='Fecha de Creación',
         default=fields.Datetime.now,

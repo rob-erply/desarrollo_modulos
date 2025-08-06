@@ -1,0 +1,1 @@
+// Example views JS file

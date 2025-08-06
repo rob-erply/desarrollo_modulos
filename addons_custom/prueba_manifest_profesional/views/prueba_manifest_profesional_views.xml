@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+    <record id="view_form_prueba_manifest_profesional" model="ir.ui.view">
+      <field name="name">prueba.manifest.profesional.form</field>
+      <field name="model">prueba_manifest_profesional.prueba_manifest_profesional</field>
+      <field name="arch" type="xml">
+        <form string="Registro Profesional">
+          <sheet>
+            <group>
+              <field name="name" string="Nombre"/>
+              <field name="description" string="Descripción"/>
+              <field name="state" string="Estado"/>
+              <field name="partner_id" string="Cliente/Proveedor"/>
+              <field name="user_id" string="Usuario Responsable"/>
+              <field name="company_id" string="Compañía"/>
+              <field name="total_amount" string="Importe Total"/>
+              <field name="date_created" string="Fecha de Creación"/>
+              <field name="date_deadline" string="Fecha Límite"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    </data>
+</odoo>

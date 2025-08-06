@@ -1,43 +1,46 @@
-# Ejemplos de Archivos XML y Configuración
+## Ejemplo profesional de vistas, acciones y menús en XML para Odoo.sh
 
-## 5. views/ - Archivos XML para Formularios, Listas, Menús
-
-### views/mi_modelo_views.xml - Vistas del Modelo
-
+### views/mi_modelo_views.xml - Vista profesional de formulario
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Vista Lista/Tree -->
-    <record id="mi_modelo_tree_view" model="ir.ui.view">
-        <field name="name">mi.modelo.principal.tree</field>
-        <field name="model">mi.modelo.principal</field>
+    <record id="mi_modelo_form_view" model="ir.ui.view">
+        <field name="name">mi.modelo.form</field>
+        <field name="model">mi.modelo</field>
         <field name="arch" type="xml">
-            <tree decoration-success="state=='done'" 
-                  decoration-warning="state in ('confirmed','approved')" 
-                  decoration-muted="state=='cancelled'"
-                  multi_edit="1">
-                <field name="sequence" widget="handle"/>
-                <field name="name"/>
-                <field name="code"/>
-                <field name="partner_id"/>
-                <field name="user_id" widget="many2one_avatar_user"/>
-                <field name="state" 
-                       decoration-success="state=='done'"
-                       decoration-warning="state in ('confirmed','approved')"
-                       decoration-danger="state=='cancelled'"
-                       widget="badge"/>
-                <field name="amount_total" widget="monetary"/>
-                <field name="currency_id" groups="base.group_multi_currency"/>
-                <field name="date_created"/>
-                <field name="activity_ids" widget="list_activity"/>
-                <button name="action_confirm" 
-                        type="object" 
-                        string="Confirmar"
-                        class="btn-primary"
-                        invisible="state != 'draft'"
-                        icon="fa-check"/>
-            </tree>
+            <form string="Mi Modelo Profesional">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="descripcion"/>
+                        <field name="state"/>
+                    </group>
+                    <footer>
+                        <button name="action_confirmar" type="object" string="Confirmar" attrs="{'invisible': [('state','!=','borrador')]}" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
         </field>
+    </record>
+</odoo>
+```
+
+### views/mi_modelo_menus.xml - Menús y acciones profesionales
+```xml
+<odoo>
+    <record id="action_mi_modelo" model="ir.actions.act_window">
+        <field name="name">Mi Modelo Profesional</field>
+        <field name="res_model">mi.modelo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_mi_modelo" name="Mi Modelo Profesional" action="action_mi_modelo" parent="base.menu_custom"/>
+</odoo>
+```
+
+## Recomendaciones profesionales para XML en Odoo.sh
+- Usa nombres y etiquetas en español.
+- Documenta cada vista y acción con comentarios.
+- Agrupa campos y botones por funcionalidad.
+- Incluye menús y acciones para acceso rápido.
     </record>
 
     <!-- Vista Formulario -->

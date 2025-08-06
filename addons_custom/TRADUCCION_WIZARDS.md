@@ -1,124 +1,128 @@
-# Archivos de Traducción y Otros Componentes
+# Ejemplo profesional de archivos de traducción y wizards para Odoo.sh
 
-## 8. i18n/ - Archivos de Traducción
+## i18n/es.po
+```
+msgid "Mi Modelo Profesional"
+msgstr "Mi Modelo Profesional"
 
-### i18n/es.po - Traducción al Español
+msgid "Confirmar"
+msgstr "Confirmar"
 
-```po
-# Translation of Odoo Server.
-# This file contains the translation of the following modules:
-#	* mi_modulo
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-01 12:00+0000\n"
-"PO-Revision-Date: 2024-01-01 12:00+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
-
-#. module: mi_modulo
-#: model:ir.model.fields,field_description:mi_modulo.field_mi_modelo_principal__name
-msgid "Nombre"
-msgstr "Nombre"
-
-#. module: mi_modulo
-#: model:ir.model.fields,field_description:mi_modulo.field_mi_modelo_principal__description
-msgid "Descripción"
-msgstr "Descripción"
-
-#. module: mi_modulo
-#: model:ir.model.fields,field_description:mi_modulo.field_mi_modelo_principal__state
 msgid "Estado"
 msgstr "Estado"
+```
+## wizard/mi_wizard.py
+```python
+from odoo import models, fields, api
 
-#. module: mi_modulo
-#: model:ir.model.fields,help:mi_modulo.field_mi_modelo_principal__name
-msgid "Nombre identificativo del registro"
-msgstr "Nombre identificativo del registro"
+class MiWizard(models.TransientModel):
+    _name = 'mi.wizard'
+    _description = 'Asistente profesional para operación masiva'
 
-#. module: mi_modulo
-#: selection:mi.modelo.principal,state:0
+    name = fields.Char('Nombre')
+    cantidad = fields.Integer('Cantidad')
+
+    def action_procesar(self):
+        # Lógica profesional de procesamiento masivo
+        # Ejemplo: actualizar estado de registros seleccionados
+        registros = self.env['mi.modelo'].browse(self._context.get('active_ids', []))
+        for registro in registros:
+            registro.state = 'confirmado'
+```
+
+## Recomendaciones profesionales
+- Traduce todos los textos visibles al usuario.
+- Usa wizards para operaciones masivas y flujos avanzados.
+
+# Ejemplo profesional y avanzado de archivos de traducción y wizards para Odoo.sh
+
+## Ejemplo de traducción avanzada (i18n/es.po)
+```po
+# Translation of Odoo Server.
+# Módulo: mi_modulo
+msgid "Mi Modelo Profesional"
+msgstr "Mi Modelo Profesional"
+msgid "Confirmar"
+msgstr "Confirmar"
+msgid "Estado"
+msgstr "Estado"
 msgid "Borrador"
 msgstr "Borrador"
-
-#. module: mi_modulo
-#: selection:mi.modelo.principal,state:0
 msgid "Confirmado"
 msgstr "Confirmado"
-
-#. module: mi_modulo
-#: selection:mi.modelo.principal,state:0
 msgid "Completado"
 msgstr "Completado"
-
-#. module: mi_modulo
-#: selection:mi.modelo.principal,state:0
 msgid "Cancelado"
 msgstr "Cancelado"
-
-#. module: mi_modulo
-#: code:addons/mi_modulo/models/mi_modelo.py:0
-#, python-format
 msgid "La fecha límite no puede ser anterior a hoy"
 msgstr "La fecha límite no puede ser anterior a hoy"
-
-#. module: mi_modulo
-#: code:addons/mi_modulo/models/mi_modelo.py:0
-#, python-format
 msgid "Solo se pueden confirmar registros en borrador"
 msgstr "Solo se pueden confirmar registros en borrador"
-
-#. module: mi_modulo
-#: model:ir.ui.menu,name:mi_modulo.mi_modulo_menu_root
 msgid "Mi Módulo"
 msgstr "Mi Módulo"
-
-#. module: mi_modulo
-#: model:ir.actions.act_window,name:mi_modulo.mi_modelo_action
 msgid "Mi Modelo Principal"
 msgstr "Mi Modelo Principal"
 ```
 
-### i18n/en.po - Traducción al Inglés
+## Ejemplo avanzado de wizard profesional (wizard/mi_wizard.py)
+```python
+from odoo import models, fields, api, _
+from odoo.exceptions import UserError
 
-```po
-# Translation of Odoo Server.
-# This file contains the translation of the following modules:
-#	* mi_modulo
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-01 12:00+0000\n"
-"PO-Revision-Date: 2024-01-01 12:00+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: en\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+class MiWizard(models.TransientModel):
+    _name = 'mi.wizard'
+    _description = 'Mi Asistente de Procesamiento'
 
-#. module: mi_modulo
-#: model:ir.model.fields,field_description:mi_modulo.field_mi_modelo_principal__name
-msgid "Nombre"
-msgstr "Name"
+    action_type = fields.Selection([
+        ('confirm', 'Confirmar Registros'),
+        ('cancel', 'Cancelar Registros'),
+        ('update_partner', 'Actualizar Cliente'),
+        ('generate_report', 'Generar Reporte'),
+    ], string='Acción a Realizar', required=True, default='confirm')
+    partner_id = fields.Many2one('res.partner', string='Nuevo Cliente')
+    notes = fields.Text('Notas')
+    record_ids = fields.Many2many('mi.modelo.principal', string='Registros Seleccionados')
+    record_count = fields.Integer(string='Número de Registros', compute='_compute_record_count')
 
-#. module: mi_modulo
-#: model:ir.model.fields,field_description:mi_modulo.field_mi_modelo_principal__description
-msgid "Descripción"
-msgstr "Description"
+    @api.depends('record_ids')
+    def _compute_record_count(self):
+        for wizard in self:
+            wizard.record_count = len(wizard.record_ids)
 
-#. module: mi_modulo
-#: model:ir.model.fields,field_description:mi_modulo.field_mi_modelo_principal__state
-msgid "Estado"
+    def action_confirm(self):
+        self.ensure_one()
+        if not self.record_ids:
+            raise UserError(_('Debe seleccionar al menos un registro'))
+        # Ejemplo: Confirmar registros en borrador
+        for record in self.record_ids:
+            if record.state == 'draft':
+                record.action_confirm()
+                if self.notes:
+                    record.message_post(body=_('Confirmado masivamente: %s') % self.notes)
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': _('Resultado'),
+                'message': _('Acción ejecutada correctamente.'),
+                'type': 'success',
+            }
+        }
+```
+
+## Recomendaciones profesionales
+- Traduce todos los textos visibles al usuario.
+- Usa wizards para operaciones masivas y flujos avanzados.
+- Documenta los métodos y campos en español.
+- Integra validaciones y notificaciones para el usuario.
+
+## Comandos útiles para traducción en Odoo.sh
+```bash
+# Generar archivo .pot (plantilla de traducción)
+python3 odoo/odoo-bin -d mi_db --i18n-export=addons_custom/mi_modulo/i18n/template.pot -m mi_modulo --stop-after-init
+# Actualizar traducciones existentes
+python3 odoo/odoo-bin -d mi_db --i18n-overwrite --i18n-import=addons_custom/mi_modulo/i18n/es.po -l es_ES --stop-after-init
+```
 msgstr "State"
 
 #. module: mi_modulo

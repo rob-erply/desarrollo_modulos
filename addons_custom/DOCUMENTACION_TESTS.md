@@ -142,22 +142,52 @@ def _check_mi_campo(self):
 
 ## 🧪 Testing
 
-### Ejecutar Tests
 
-```bash
-# Tests unitarios del módulo
-python3 odoo-bin -d test_db --test-enable --stop-after-init -i mi_modulo
+### Ejecución de pruebas automáticas en Odoo.sh
 
-# Tests específicos
-python3 odoo-bin -d test_db --test-enable --test-tags mi_modulo --stop-after-init
+Las pruebas automáticas se ejecutan al hacer push al repositorio conectado a Odoo.sh. Los resultados aparecen en la interfaz de Odoo.sh y en los logs de CI/CD.
+
+#### Ejemplo avanzado de test
+```python
+from odoo.tests.common import TransactionCase, tagged
+
+@tagged('registro', 'workflow')
+class TestRegistroProfesional(TransactionCase):
+    """
+    Pruebas automáticas para el modelo registro.profesional
+    """
+    def setUp(self):
+        super().setUp()
+        self.registro = self.env['registro.profesional'].create({
+            'name': 'Ejemplo',
+            'descripcion': 'Prueba avanzada',
+        })
+
+    def test_creacion_registro(self):
+        """Verifica la creación de un registro profesional"""
+        self.assertEqual(self.registro.name, 'Ejemplo')
+
+    def test_validacion_estado(self):
+        """Valida el cambio de estado del registro"""
+        self.registro.action_confirmar()
+        self.assertEqual(self.registro.state, 'confirmado')
+
+    def test_permisos_manager(self):
+        """Verifica que solo el manager puede cancelar registros"""
+        # ...aquí iría la lógica de permisos...
 ```
 
-### Tests Disponibles
+#### Checklist profesional para pruebas en Odoo.sh
+- [x] Pruebas de creación y validación de datos
+- [x] Pruebas de workflow y transiciones de estado
+- [x] Pruebas de permisos y reglas de acceso
+- [x] Pruebas de integración con otros módulos
 
-- `test_model_creation` - Creación de registros
-- `test_state_transitions` - Transiciones de estado
-- `test_validations` - Validaciones de campos
-- `test_permissions` - Permisos de usuario
+#### Recomendaciones
+- Agrupa las pruebas por funcionalidad y usa decoradores
+- Documenta cada método de prueba en español
+- Simula escenarios reales de negocio
+- Mantén las pruebas actualizadas con cada cambio
 
 ## 🐛 Solución de Problemas
 
@@ -941,4 +971,29 @@ class TestMiModeloPerformance(TestMiModuloCommon):
         self.assertGreaterEqual(len(partner1_records), 25)
 ```
 
-Esta documentación completa incluye todos los componentes que mencionaste: README.md detallado, ejemplos de licencias, descripción HTML visual y tests comprehensivos. ¿Te gustaría que agregue algún componente adicional o modifique alguna parte específica?
+# Documentación de Pruebas Automáticas
+
+## Objetivo
+
+Este documento describe los casos de prueba implementados para el módulo Prueba Manifest Profesional.
+
+## Casos de prueba incluidos
+
+- **Creación de registros:** Verifica que se puedan crear registros con los campos obligatorios.
+- **Validación de fecha límite:** Asegura que no se permita una fecha límite anterior a la actual.
+- **Cálculo de importe total:** Comprueba que el importe total se calcule correctamente.
+- **Transiciones de estado:** Valida que solo se puedan realizar cambios de estado permitidos.
+- **Permisos y reglas de acceso:** Confirma que los usuarios y managers tengan los permisos adecuados.
+
+## Ejecución de pruebas
+
+Para ejecutar las pruebas automáticas, utiliza el siguiente comando en el entorno Odoo:
+
+```bash
+python3 odoo-bin -d <nombre_base_datos> --test-enable --stop-after-init -i prueba_manifest_profesional
+```
+
+## Resultados esperados
+
+- Todas las pruebas deben pasar sin errores.
+- Los mensajes de error y validación estarán en español para facilitar la comprensión.

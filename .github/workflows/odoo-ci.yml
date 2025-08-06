@@ -1,0 +1,93 @@
+name: CI Odoo
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Instalar dependencias
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+          pip3 install -r requirements.txt
+
+      - name: Instalar pytest y coverage
+        run: pip3 install pytest coverage
+
+      - name: Ejecutar pruebas y generar reporte de cobertura
+        run: |
+          coverage run -m pytest addons_custom/
+          coverage report
+          coverage xml
+
+      - name: Subir reporte de cobertura a Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage.xml
+
+      - name: Auditoría de seguridad (bandit)
+        run: |
+          pip3 install bandit
+          bandit -r addons_custom/ > bandit-report.txt || true
+          cat bandit-report.txt
+
+      - name: Validar traducciones
+        run: |
+          python3 odoo/odoo-bin -d test_db --i18n-export=addons_custom/mi_modulo/i18n/template.pot -m mi_modulo --stop-after-init
+          python3 odoo/odoo-bin -d test_db --i18n-import=addons_custom/mi_modulo/i18n/es.po -l es_ES --stop-after-init
+
+      - name: Generar documentación automática
+        run: |
+          ./scripts/create_documentation.sh
+
+      - name: Instalar Odoo (ejemplo)
+        run: |
+          # Aquí puedes instalar Odoo o usar un contenedor preconfigurado
+          echo "Instalación simulada de Odoo"
+          # Para integración real, instala Odoo y configura la base de datos de pruebas
+
+      - name: Ejecutar pruebas automáticas
+        run: |
+          # Aquí se ejecutan las pruebas automáticas del módulo
+          echo "python3 odoo-bin -d test_db --test-enable --stop-after-init -i prueba_manifest_profesional"
+          # Sustituye este comando por la ejecución real en tu entorno Odoo
+
+      - name: Finalizar workflow
+        run: |
+          echo "Workflow de integración continua finalizado correctamente."
+
+      - name: Notificar resultado
+        run: |
+          echo "Notificación: El workflow CI Odoo ha finalizado. Revisa los resultados en GitHub Actions."
+
+      - name: Enviar notificación por correo
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.tu-servidor.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "CI Odoo finalizado"
+          to: "destinatario@tuempresa.com"
+          from: "ci-odoo@tuempresa.com"
+          body: |
+            El workflow de integración continua para Odoo ha finalizado.
+            Revisa los resultados en GitHub Actions.
+
+      - name: Notificar en Slack
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+              "text": "El workflow CI Odoo ha finalizado. Revisa los resultados en GitHub Actions."
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

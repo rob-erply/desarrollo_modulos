@@ -1,43 +1,46 @@
-# 🏢 ERPly S.R.L. - Especialistas en Odoo
+# Sobre ERPly S.R.L. - Desarrollo profesional en Odoo y Odoo.sh
 
-## 👋 Quiénes Somos
+## Quiénes Somos
 
-**ERPly S.R.L.** es una empresa especializada en el desarrollo e implementación de soluciones Odoo para empresas en República Dominicana y el Caribe. Nos enfocamos en crear módulos personalizados de alta calidad y brindar servicios de consultoría técnica especializada.
+ERPly S.R.L. es líder en soluciones ERP y desarrollo profesional de módulos para Odoo, especializado en despliegue, automatización y CI/CD en Odoo.sh.
 
-## 📍 Información de Contacto
+## Información de Contacto
 
-**Razón Social:** ERPly S.R.L.  
-**Dirección:** Calle Dr. Jacinto Ignacio Mañón #7  
-**País:** República Dominicana  
+- Razón Social: ERPly S.R.L.
+- Dirección: Calle Dr. Jacinto Ignacio Mañón #7, República Dominicana
+- Email: info@erply.do
+- Teléfono: +1 (849) 517-5363
+- Sitio Web: https://erply.do
+- GitHub: https://github.com/rob-erply
 
-**Contacto:**  
-📧 **Email:** info@erply.do  
-📞 **Teléfono:** +1 (849) 517-5363  
-🌐 **Sitio Web:** https://erply.do  
-💼 **GitHub:** https://github.com/rob-erply  
+## Servicios profesionales
+- Desarrollo de módulos personalizados para Odoo y Odoo.sh
+- Integración avanzada con sistemas externos y APIs
+- Automatización de procesos empresariales
+- Implementación de CI/CD y pruebas automáticas
+- Soporte técnico, formación y mantenimiento
 
-## 🚀 Servicios Especializados
+## Enfoque en Odoo.sh
+- Optimización de módulos para despliegue en la nube
+- Documentación y buenas prácticas en español
+- Validación y testing automatizado
 
-### 🔧 Desarrollo de Módulos Personalizados
-- Análisis de requerimientos específicos
-- Desarrollo de módulos a medida para Odoo
-- Integración con sistemas externos
-- Personalización de funcionalidades existentes
+## Metodología y compromiso
+- Metodología ágil, entregas incrementales y feedback continuo
+- Excelencia técnica y cumplimiento de plazos
+- Innovación y transferencia de conocimiento
 
-### 🏗️ Implementación y Consultoría
-- Implementación completa de Odoo Enterprise/Community
-- Migración de datos desde otros sistemas
-- Configuración de procesos empresariales
-- Capacitación de usuarios finales
+## Casos de éxito y especialidades
+- Implementaciones exitosas en manufactura, retail, salud y finanzas
+- Módulos avanzados de trazabilidad, POS, e-commerce y reportes fiscales
 
-### 🔄 Migración entre Versiones
-- Migración segura entre versiones de Odoo
-- Actualización de módulos personalizados
-- Pruebas exhaustivas post-migración
-- Minimización de downtime
+## Nuestro compromiso
+- Excelencia técnica y relaciones a largo plazo
+- Empoderamiento y formación de clientes
 
-### 🛠️ Soporte Técnico Especializado
-- Soporte técnico continuo 24/7
+---
+
+ERPly S.R.L. - Transformando negocios con tecnología Odoo y Odoo.sh desde 2018
 - Resolución de problemas críticos
 - Mantenimiento preventivo
 - Monitoreo de performance

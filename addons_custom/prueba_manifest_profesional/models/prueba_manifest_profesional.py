@@ -19,25 +19,25 @@ class Pruebamanifestprofesional(models.Model):
         tracking=True,
         help='Nombre identificativo del registro'
     )
-    
+
     description = fields.Text(
         string='Descripción',
         help='Descripción detallada'
     )
-    
+
     state = fields.Selection([
         ('draft', 'Borrador'),
         ('confirmed', 'Confirmado'),
         ('done', 'Completado'),
         ('cancelled', 'Cancelado'),
     ], string='Estado', default='draft', tracking=True)
-    
+
     active = fields.Boolean(
         string='Activo',
         default=True,
         help='Si está desmarcado, oculta el registro sin eliminarlo'
     )
-    
+
     # Campos relacionales
     partner_id = fields.Many2one(
         'res.partner',
@@ -45,19 +45,45 @@ class Pruebamanifestprofesional(models.Model):
         required=True,
         help='Contacto asociado'
     )
-    
+
     user_id = fields.Many2one(
         'res.users',
         string='Usuario Responsable',
         default=lambda self: self.env.user,
         required=True
     )
-    
+
     company_id = fields.Many2one(
         'res.company',
         string='Compañía',
         default=lambda self: self.env.company,
         required=True
+    )
+
+    # Ejemplo de restricción profesional: el nombre debe tener al menos 3 caracteres
+    @api.constrains('name')
+    def _check_name_length(self):
+        for record in self:
+            if record.name and len(record.name) < 3:
+                raise ValidationError(_('El nombre debe tener al menos 3 caracteres.'))
+
+    # Ejemplo de método on-change profesional
+    @api.onchange('partner_id')
+    def _onchange_partner_id(self):
+        """
+        Al seleccionar un contacto, se actualiza la descripción con el nombre del contacto.
+        """
+        if self.partner_id:
+            self.description = f"Registro vinculado a: {self.partner_id.name}"
+
+    # Ejemplo de lógica profesional: confirmar registro
+    def action_confirmar(self):
+        """
+        Método profesional para confirmar el registro y dejar constancia en el chatter.
+        """
+        for record in self:
+            record.state = 'confirmed'
+            record.message_post(body=_('Registro confirmado correctamente.'))
     )
     
     # Campos calculados
@@ -82,30 +108,66 @@ class Pruebamanifestprofesional(models.Model):
     
     @api.depends('partner_id')
     def _compute_total_amount(self):
+        """
+        Calcula el importe total del registro. Aquí puedes agregar la lógica real de negocio.
+        """
         for record in self:
-            # Lógica de cálculo personalizada
+            # Ejemplo: sumar importes de líneas relacionadas (si existieran)
             record.total_amount = 0.0
     
     @api.constrains('date_deadline')
     def _check_date_deadline(self):
+        """
+        Valida que la fecha límite no sea anterior a la fecha actual.
+        """
         for record in self:
             if record.date_deadline and record.date_deadline < fields.Date.today():
-                raise ValidationError(_('La fecha límite no puede ser anterior a hoy.'))
+                raise ValidationError(_('La fecha límite no puede ser anterior a hoy (%s).') % fields.Date.today())
+
+    @api.constrains('total_amount')
+    def _check_total_amount(self):
+        """
+        Valida que el importe total no sea negativo.
+        """
+        for record in self:
+            if record.total_amount < 0:
+                raise ValidationError(_('El importe total no puede ser negativo.'))
     
     def action_confirm(self):
-        self.write({'state': 'confirmed'})
+        """
+        Cambia el estado a 'confirmado' solo si está en borrador.
+        """
+        for record in self:
+            if record.state != 'draft':
+                raise ValidationError(_('Solo se puede confirmar un registro en estado borrador.'))
+            record.write({'state': 'confirmed'})
         return True
     
     def action_done(self):
-        self.write({'state': 'done'})
+        """
+        Cambia el estado a 'completado' solo si está confirmado.
+        """
+        for record in self:
+            if record.state != 'confirmed':
+                raise ValidationError(_('Solo se puede completar un registro confirmado.'))
+            record.write({'state': 'done'})
         return True
     
     def action_cancel(self):
+        """
+        Cancela el registro en cualquier estado.
+        """
         self.write({'state': 'cancelled'})
         return True
     
     def action_reset_to_draft(self):
-        self.write({'state': 'draft'})
+        """
+        Regresa el registro al estado borrador solo si está cancelado.
+        """
+        for record in self:
+            if record.state != 'cancelled':
+                raise ValidationError(_('Solo se puede regresar a borrador desde cancelado.'))
+            record.write({'state': 'draft'})
         return True
     
     @api.model

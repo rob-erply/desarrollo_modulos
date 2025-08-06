@@ -127,6 +127,18 @@ python3 odoo-bin -d test_db --test-enable --test-tags addons_custom/prueba_manif
    - Logs de error
    - Capturas de pantalla
 
+# Soporte y Mantenimiento
+
+Para cualquier problema, consulta la documentación incluida en el módulo.
+Si encuentras errores, revisa los logs de Odoo y los resultados de las pruebas automáticas.
+Contacta al equipo de desarrollo de ERPly S.R.L. para soporte avanzado.
+
+## Actualización del módulo
+
+- Realiza una copia de seguridad antes de actualizar.
+- Sustituye la carpeta del módulo por la nueva versión y repite el proceso de instalación.
+- Ejecuta las pruebas automáticas tras la actualización.
+
 ## 🤝 Contribuir
 
 ### Proceso de Contribución
@@ -141,11 +153,52 @@ python3 odoo-bin -d test_db --test-enable --test-tags addons_custom/prueba_manif
 
 Este módulo está licenciado bajo LGPL-3.0. Ver archivo [LICENSE](LICENSE) para detalles.
 
-## 🙏 Créditos
 
-- **Autor**: [TU NOMBRE]
-- **Empresa**: [TU EMPRESA]
-- **Colaboradores**: Lista de colaboradores
+# Guía profesional para desarrollo en Odoo.sh
+
+## Estructura recomendada
+
+```
+addons_custom/
+└── prueba_manifest_profesional/
+    ├── __init__.py
+    ├── __manifest__.py
+    ├── models/
+    ├── views/
+    ├── security/
+    ├── tests/
+    ├── static/
+    └── README.md
+```
+
+## Instalación en Odoo.sh
+
+1. Conecta tu repositorio de GitHub a Odoo.sh.
+2. Haz push a la rama principal o de desarrollo.
+3. Odoo.sh instalará dependencias, ejecutará pruebas y desplegará el módulo automáticamente.
+
+## Uso
+
+- Accede al menú "Registros Profesionales" en Odoo.
+- Crea y gestiona registros con workflow automatizado.
+- Utiliza los botones de acción para cambiar el estado del registro.
+- Los permisos y reglas se gestionan por grupos definidos en el módulo.
+
+## Pruebas automáticas
+
+- Las pruebas se ejecutan automáticamente en Odoo.sh al hacer push.
+- Incluye casos para creación, validaciones, workflow y permisos.
+
+## Buenas prácticas
+
+- Mantén la documentación y los tests actualizados.
+- Usa ramas para desarrollo, staging y producción.
+- Configura variables y secretos desde la interfaz de Odoo.sh.
+
+## Soporte y mantenimiento
+
+Para cualquier problema, consulta la documentación incluida en el módulo.
+Contacta al equipo de desarrollo de ERPly S.R.L. para soporte avanzado.
 
 ## 📚 Recursos Adicionales
 

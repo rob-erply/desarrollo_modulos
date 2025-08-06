@@ -3,7 +3,7 @@ from odoo.tests.common import TransactionCase
 from odoo.exceptions import ValidationError, UserError
 
 
-class TestAddons_custom/prueba_manifest_profesionalCommon(TransactionCase):
+class TestPruebaManifestProfesionalCommon(TransactionCase):
     """Clase base con utilidades comunes para los tests"""
     
     @classmethod
@@ -34,5 +34,4 @@ class TestAddons_custom/prueba_manifest_profesionalCommon(TransactionCase):
             # TODO: Agregar campos específicos del módulo
         }
         values.update(kwargs)
-        # TODO: Cambiar por el modelo principal del módulo
-        return self.env['addons_custom/prueba_manifest_profesional.model'].create(values)
+        return self.env['prueba_manifest_profesional.prueba_manifest_profesional'].create(values)

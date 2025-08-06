@@ -1,0 +1,8 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Example group -->
+        <record id="group_prueba_manager" model="res.groups">
+            <field name="name">Prueba Manager</field>
+        </record>
+    </data>
+</odoo>

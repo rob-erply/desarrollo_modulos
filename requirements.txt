@@ -6,17 +6,31 @@ debugpy>=1.6.0
 ipython>=8.0.0
 ipdb>=0.13.0
 
+# Herramientas de depuración y profiling avanzadas
+memory_profiler>=0.61.0
+psutil>=5.9.0
+
 # Testing
 pytest>=7.0.0
 pytest-odoo>=2.0.0
+
+# Cobertura de tests
+pytest-cov>=4.0.0
 
 # Formateo y linting
 black>=22.0.0
 flake8>=5.0.0
 isort>=5.10.0
 
+# Seguridad y análisis de dependencias
+bandit>=1.7.0
+safety>=2.3.5
+
 # Documentación
 sphinx>=4.0.0
+
+# Generación de documentación profesional
+myst-parser>=2.0.0
 
 # Herramientas útiles para desarrollo
 python-decouple>=3.6
@@ -24,9 +38,16 @@ requests>=2.28.0
 xlsxwriter>=3.0.0
 xlrd>=2.0.0
 
+# Soporte para archivos PDF
+PyPDF2>=3.0.0
+
 # Para desarrollo web avanzado
 lxml>=4.9.0
 Pillow>=9.0.0
+
+# Herramientas para APIs REST y JSON
+httpx>=0.24.0
+ujson>=5.7.0
 
 # Utilidades adicionales para desarrollo de módulos
 beautifulsoup4>=4.11.0
